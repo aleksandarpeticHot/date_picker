@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "outDir": "./dist",
+    "allowJs": false,
+    "target": "es5",
+    "jsx": "react",
+    "lib": [
+      "es2015",
+      "dom"
+    ],
+    "module": "commonjs",
+    "skipLibCheck": true,
+    "types": []
+  },
+  "include": [
+      "./src/**/*"
+  ]
+}

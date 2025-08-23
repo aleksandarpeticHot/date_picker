@@ -1,0 +1,12 @@
+import 'dayjs/locale/en';
+import 'dayjs/locale/de';
+import 'dayjs/locale/nl';
+import 'dayjs/locale/fr';
+import 'dayjs/locale/nl-be';
+import { Dayjs } from 'dayjs';
+declare const buildCalendarValues: (localization?: string) => string[];
+declare const getInitialDatePosition: (selectable: number[], currentDate: Dayjs) => number;
+declare const getDisabledPositions: (enable: Dayjs[], disable: Dayjs[], maxDate: Dayjs, minDate: Dayjs, currentDate: Dayjs) => number[];
+declare const isNextPageAvailable: (maxDate: Dayjs, enable: Dayjs[], currentDate: Dayjs) => boolean;
+declare const isPrevPageAvailable: (minDate: Dayjs, enable: Dayjs[], currentDate: Dayjs) => boolean;
+export { buildCalendarValues, getInitialDatePosition, getDisabledPositions, isNextPageAvailable, isPrevPageAvailable, };

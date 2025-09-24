@@ -4,6 +4,8 @@
 .vscode/
 # dist/  # Commented out to include built files in repository
 /node_modules
+/dist
+dist
 #Cache folder
 .alcache/
 #Symbols folder

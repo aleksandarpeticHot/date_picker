@@ -26,6 +26,7 @@ import {
   isNextPageAvailable,
   isPrevPageAvailable,
 } from './sharedFunctions';
+import dayjs from 'dayjs';
 
 const PAGE_WIDTH = 7;
 export const DAYS_ON_PAGE = WEEKS_TO_DISPLAY * PAGE_WIDTH;
@@ -207,24 +208,20 @@ class DayPicker
   }
 
   protected switchToNextPage = (e: React.SyntheticEvent<HTMLElement>,
-                                data: any,
-                                callback: () => void): void => {
+    data: any,
+    callback: () => void): void => {
     this.setState(({ date }) => {
-      const nextDate = date.clone();
-      nextDate.add(1, 'month');
-
-      return { date: nextDate };
+      const outValue = dayjs(date.clone()).add(1, 'month');
+      return { date: outValue };
     }, callback);
   }
 
   protected switchToPrevPage = (e: React.SyntheticEvent<HTMLElement>,
-                                data: any,
-                                callback: () => void): void => {
+    data: any,
+    callback: () => void): void => {
     this.setState(({ date }) => {
-      const prevDate = date.clone();
-      prevDate.subtract(1, 'month');
-
-      return { date: prevDate };
+      const prevData = dayjs(date.clone()).subtract(1, 'month')
+      return { date: prevData };
     }, callback);
   }
 }

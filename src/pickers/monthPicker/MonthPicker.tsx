@@ -27,6 +27,7 @@ import {
   isNextPageAvailable,
   isPrevPageAvailable,
 } from './sharedFunctions';
+import dayjs from 'dayjs';
 
 type MonthPickerProps = BasePickerProps
   & DisableValuesProps
@@ -170,24 +171,20 @@ class MonthPicker
   }
 
   protected switchToNextPage = (e: React.SyntheticEvent<HTMLElement>,
-                                data: any,
-                                callback: () => void): void => {
+    data: any,
+    callback: () => void): void => {
     this.setState(({ date }) => {
-      const nextDate = date.clone();
-      nextDate.add(1, 'year');
-
-      return { date: nextDate };
+      const outValue = dayjs(date.clone()).add(1, 'year');
+      return { date: outValue };
     }, callback);
   }
 
   protected switchToPrevPage = (e: React.SyntheticEvent<HTMLElement>,
-                                data: any,
-                                callback: () => void): void => {
+    data: any,
+    callback: () => void): void => {
     this.setState(({ date }) => {
-      const prevDate = date.clone();
-      prevDate.subtract(1, 'year');
-
-      return { date: prevDate };
+      const prevData = dayjs(date.clone()).subtract(1, 'year')
+      return { date: prevData };
     }, callback);
   }
 }

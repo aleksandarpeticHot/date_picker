@@ -209,10 +209,8 @@ class MonthRangePicker
                                 data: any,
                                 callback: () => void): void => {
     this.setState(({ date }) => {
-      const nextDate = date.clone();
-      nextDate.add(1, 'year');
-
-      return { date: nextDate };
+      const outValue = dayjs(date.clone()).add(1, 'year');
+      return { date: outValue };
     }, callback);
   }
 
@@ -220,10 +218,8 @@ class MonthRangePicker
                                 data: any,
                                 callback: () => void): void => {
     this.setState(({ date }) => {
-      const prevDate = date.clone();
-      prevDate.subtract(1, 'year');
-
-      return { date: prevDate };
+      const outValue = dayjs(date.clone()).subtract(1, 'year');
+      return { date: outValue };
     }, callback);
   }
 

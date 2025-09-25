@@ -274,19 +274,21 @@ class DatesRangePicker
   }
 
   protected switchToNextPage = (e: React.SyntheticEvent<HTMLElement>,
-    data: any,
-    callback: () => void): void => {
+                                data: any,
+                                callback: () => void): void => {
     this.setState(({ date }) => {
       const outValue = dayjs(date.clone()).add(1, 'month');
+
       return { date: outValue };
     }, callback);
   }
 
   protected switchToPrevPage = (e: React.SyntheticEvent<HTMLElement>,
-    data: any,
-    callback: () => void): void => {
+                                data: any,
+                                callback: () => void): void => {
     this.setState(({ date }) => {
-      const prevData = dayjs(date.clone()).subtract(1, 'month')
+      const prevData = dayjs(date.clone()).subtract(1, 'month');
+
       return { date: prevData };
     }, callback);
   }
@@ -342,9 +344,9 @@ function getDatesFromNextMonth(date, allDays, nextMonthStartPosition) {
 
 /** Build moment based on current page and date position on that page. */
 function buildMoment(pageReferenceDate: Dayjs,
-  firstOnPage: number,
-  dateToBuildPosition: number,
-  localization: string): Dayjs {
+                     firstOnPage: number,
+                     dateToBuildPosition: number,
+                     localization: string): Dayjs {
   let result;
   if (firstOnPage === 1/* page starts from first day in month */) {
     const dateOptions = createDayjsDate({

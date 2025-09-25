@@ -171,19 +171,21 @@ class MonthPicker
   }
 
   protected switchToNextPage = (e: React.SyntheticEvent<HTMLElement>,
-    data: any,
-    callback: () => void): void => {
+                                data: any,
+                                callback: () => void): void => {
     this.setState(({ date }) => {
       const outValue = dayjs(date.clone()).add(1, 'year');
+
       return { date: outValue };
     }, callback);
   }
 
   protected switchToPrevPage = (e: React.SyntheticEvent<HTMLElement>,
-    data: any,
-    callback: () => void): void => {
+                                data: any,
+                                callback: () => void): void => {
     this.setState(({ date }) => {
-      const prevData = dayjs(date.clone()).subtract(1, 'year')
+      const prevData = dayjs(date.clone()).subtract(1, 'year');
+
       return { date: prevData };
     }, callback);
   }

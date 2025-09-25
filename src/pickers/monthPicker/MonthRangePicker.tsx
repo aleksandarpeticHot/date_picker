@@ -210,6 +210,7 @@ class MonthRangePicker
                                 callback: () => void): void => {
     this.setState(({ date }) => {
       const outValue = dayjs(date.clone()).add(1, 'year');
+
       return { date: outValue };
     }, callback);
   }
@@ -219,6 +220,7 @@ class MonthRangePicker
                                 callback: () => void): void => {
     this.setState(({ date }) => {
       const outValue = dayjs(date.clone()).subtract(1, 'year');
+
       return { date: outValue };
     }, callback);
   }

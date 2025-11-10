@@ -20,6 +20,7 @@ import {
   MinMaxValueProps,
   SingleSelectionPicker,
 } from './BasePicker';
+import dayjs from 'dayjs';
 
 const PAGE_WIDTH = 3;
 const PAGE_HEIGHT = 4;
@@ -222,10 +223,8 @@ class YearPicker extends SingleSelectionPicker<YearPickerProps> {
                                 data: any,
                                 callback: () => void): void => {
     this.setState(({ date }) => {
-      const nextDate = date.clone();
-      nextDate.add(YEARS_ON_PAGE, 'year');
-
-      return { date: nextDate };
+      const outValue = dayjs(date.clone()).add(YEARS_ON_PAGE, 'year');
+      return { date: outValue };
     }, callback);
   }
 
@@ -233,10 +232,8 @@ class YearPicker extends SingleSelectionPicker<YearPickerProps> {
                                 data: any,
                                 callback: () => void): void => {
     this.setState(({ date }) => {
-      const prevDate = date.clone();
-      prevDate.subtract(YEARS_ON_PAGE, 'year');
-
-      return { date: prevDate };
+     const prevData = dayjs(date.clone()).subtract(YEARS_ON_PAGE, 'year')
+      return { date: prevData };
     }, callback);
   }
 }

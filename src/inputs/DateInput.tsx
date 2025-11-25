@@ -160,7 +160,7 @@ class DateInput extends BaseInput<DateInputProps, DateInputState> {
       onChange,
       ...rest
     } = this.props;
-
+console.log(value)
     return (
       <InputView
         closePopup={this.closePopup}
@@ -225,7 +225,8 @@ class DateInput extends BaseInput<DateInputProps, DateInputState> {
       pickerStyle,
       onChange: this.handleSelect,
       onHeaderClick: this.switchToPrevMode,
-      initializeWith: buildValue(this.parseInternalValue(), initialDate, localization, dateFormat),
+      initializeWith: initialDate && !value ? buildValue(initialDate, this.parseInternalValue(), localization, dateFormat) :
+      buildValue(this.parseInternalValue(), initialDate , localization, dateFormat),
       value: buildValue(value, null, localization, dateFormat, null),
       enable: parseArrayOrValue(enable, dateFormat, localization),
       minDate: parseValue(minDate, dateFormat, localization),
@@ -252,7 +253,7 @@ class DateInput extends BaseInput<DateInputProps, DateInputState> {
         />
       );
     }
-
+    console.log(pickerProps)
     return <DayPicker {...pickerProps} disable={disableParsed} marked={markedParsed} markColor={markColor} />;
   }
 

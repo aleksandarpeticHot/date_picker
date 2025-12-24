@@ -9,7 +9,6 @@
     "prepublishOnly": "yarn build",
     "test": "yarn env-cmd ./test/.env yarn mocha -r ts-node/register ./test/setup.js ./test/**/*.{js,jsx,ts,tsx}",
     "start": "cross-env NODE_OPTIONS=\"--openssl-legacy-provider\" yarn webpack-dev-server",
-    "prebuild": "yarn lint && yarn rimraf dist/*",
     "build": "yarn build:commonjs && yarn build:es6 && yarn build:amd && yarn build:umd && yarn build:declarations",
     "build:commonjs": "yarn tsc --module commonjs --outDir ./dist/commonjs",
     "build:es6": "yarn tsc --module es6 --outDir ./dist/es6",
